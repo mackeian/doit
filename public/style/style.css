@@ -1,0 +1,298 @@
+body {
+
+}
+
+.clear {
+    clear: both;
+}
+
+/*
+ * Sizes
+ */
+
+.full-width {
+    width: 100%;
+}
+
+.full-height {
+    height: 100%;
+}
+
+.max-full-width {
+    max-width: 100%;
+}
+
+.half-height {
+    height: 50%;
+}
+
+.two-third-height {
+    height: 66%;
+}
+
+.one-third-height {
+    height: 33%;
+}
+
+.fifth-width {
+    width: 18%;
+}
+
+.forth-width {
+    width: 23%;
+}
+
+.third-width {
+    width: 33%;
+}
+
+.half-width {
+    width: 49%;
+}
+
+/*
+ * Positioning
+ */
+.margin-1 {
+    margin: 2px;
+}
+
+.margin-top-1 {
+    margin-top: 2px;
+}
+
+.margin-top-2 {
+    margin-top: 5px;
+}
+
+.margin-right-1 {
+    margin-right: 2px;
+}
+
+.padding-1 {
+    padding: 2px;
+}
+.padding-2 {
+    padding: 5px;
+}
+
+.padding-left-3 {
+    padding-left: 15px;
+}
+.padding-right-3 {
+    padding-right: 15px;
+}
+
+.horizontal-padding-1 {
+    padding-right: 2px;
+    padding-left: 2px;
+}
+
+.no-horizontal-padding {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.no-overflow {
+    overflow: hidden;
+}
+
+.no-margin {
+    margin: 0px;
+}
+
+.margin-bottom-negative-1 {
+    margin-bottom: -1px;
+}
+
+.no-margin-top {
+    margin-top: 0px;
+}
+
+.pos-absolute {
+    position: absolute;
+}
+
+.top-right-corner {
+    top: 0px;
+    right: 0px;
+}
+
+.top-left-corner {
+    top: 0px;
+    left: 0px;
+}
+
+.bottom-left-corner {
+    bottom: 0px;
+    left: 0px;
+}
+
+.bottom-right-corner {
+    bottom: 0px;
+    right: 0px;
+}
+
+.pos-relative {
+    position: relative;
+}
+
+.float-left {
+    float: left;
+}
+
+/*
+ * Heights
+ */
+
+.height-1 {
+
+}
+
+.height-11 {
+    height: 30px;
+}
+
+.height-2 {
+    height: 40px;
+}
+
+.height-3 {
+    height: 60px;
+}
+
+.height-4 {
+    height: 80px;
+}
+
+.height-5 {
+    height: 100px;
+}
+
+/*
+ * Typographical
+ */
+.text-center {
+    text-align: center;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.ellipsis {
+    white-space: normal;
+    text-overflow: ellipsis;
+}
+
+/*
+ * Borders
+ */
+.border-top-gray-3 {
+    border-top: 3px solid gray;
+}
+
+.border-gray-1 {
+    border:1px solid #999999;
+}
+
+.border-right-gray-1 {
+    border-right: 1px solid gray;
+}
+
+.border-left-gray-1 {
+    border-left: 1px solid gray;
+}
+
+/*
+ * Colors
+ */
+
+.color-yellow {
+    color: #FFD800;
+}
+
+.color-orange {
+    color: #FFA500;
+}
+
+.color-green {
+    color: #478947;
+}
+
+.color-blue {
+    color: #587498;
+}
+
+.color-red {
+    color: #932713;
+}
+.color-white {
+    color: #eeeeee;
+}
+
+a.color-white, a.color-white:visited, a.color-white:active {
+    color: lightblue;
+}
+
+.background-yellow {
+    background-color: #A49022;
+}
+.background-green {
+    background-color: #478947;
+}
+.background-blue {
+    background-color: #587498;
+}
+.background-red {
+    background-color: #D33012;
+}
+
+.background-gray {
+    background-color: gray;
+}
+
+.background-black {
+    background-color: #080808;
+}
+
+.background-light-gray {
+    background-color: #999999;
+}
+
+.background-white {
+    background-color: #FAFAFA;
+}
+
+.overline {
+    border-top:1px solid #DDDDDD;
+}
+
+.overline-2 {
+    border-top:3px solid #DDDDDD;
+}
+
+.underline {
+    border-bottom:1px solid #DDDDDD;
+}
+
+.rounded-box-2 {
+    border-radius: 25px;
+}
+
+.rounded-corners-1 {
+    border-radius: 2px;
+}
+
+.rounded-corners-2 {
+    border-radius: 5px;
+}
+
+.rounded-corners-4 {
+    border-radius: 20px;
+}
+
+.avatar-2 {
+    height: 24px;
+    width: 24px;
+}
