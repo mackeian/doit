@@ -1,2 +1,42 @@
 <h1 class="text-center">Dashboard</h1>
-Foo = {{foo}}
+<button class="btn btn-xs btn-primary"
+        ng-hide="state==STATE_ADD_GOAL"
+        ng-click="showAddGoal()"
+>
+    + Add goal
+</button>
+<button class="btn btn-xs btn-danger" ng-click="clearGoals()">
+    XXX Clear all goals
+</button>
+<div ng-show="state==STATE_ADD_GOAL">
+    <h2>Add new goal</h2>
+    <label for="add_name">Name:</label> <input id="add_name" type="text" ng-model="add_goal_model.name"><br/>
+    <select id="add_frequency" ng-model="add_goal_model.frequency" ng-init="add_goal_model.frequency = '1'">
+        <option value="1" selected>1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+    </select>
+    <label for="add_duration"> time{{add_goal_model.frequency > 1 ? 's' : ''}} per </label>
+    <select id="add_duration" ng-model="add_goal_model.duration" ng-init="add_goal_model.duration = 'week'">
+        <option value="week">week</option>
+        <option value="month">month</option>
+    </select><br/>
+    <button class="btn btn-default" ng-click="cancelAddGoal()">Cancel</button>
+    <button class="btn btn-primary" ng-click="addGoal()">Add</button>
+</div>
+
+<div ng-show="goals">
+    <div class="row" ng-repeat="goal in goals">
+        <div class="col-xs-12">
+            <p class="lead">{{goal.name}}</p>
+            {{goal.frequency}} time{{goal.frequency > 1 ? 's' : ''}} per {{goal.duration}}
+        </div>
+    </div>
+</div>
+<div ng-hide="goals">
+    <p class="lead">Well hello handsome! Get started by <a ng-href ng-click="showAddGoal()">adding a goal!</a></p>
+</div>
