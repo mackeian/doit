@@ -8,6 +8,7 @@
 <button class="btn btn-xs btn-danger" ng-click="clearGoals()">
     XXX Clear all goals
 </button>
+
 <div ng-show="state==STATE_ADD_GOAL">
     <h2>Add new goal</h2>
     <label for="add_name">Name:</label> <input id="add_name" type="text" ng-model="add_goal_model.name"><br/>
@@ -29,11 +30,22 @@
     <button class="btn btn-primary" ng-click="addGoal()">Add</button>
 </div>
 
-<div ng-show="goals">
+<div ng-show="state==STATE_ADD_ACTIVITY_ON_DATE">
+    <h2>Add activity on {{add_activity_model.goal.name}}</h2>
+    <label for="add_activity_date">Date</label><input id="add_activity_date" type="date" ng-model="add_activity_model.date">
+    <button class="btn btn-default" ng-click="cancelAddActivityOnDate()">Cancel</button>
+    <button class="btn btn-primary" ng-click="addActivityOnDate()">Add</button>
+</div>
+
+<div ng-show="goals && !state">
     <div class="row" ng-repeat="goal in goals">
         <div class="col-xs-12">
             <p class="lead">{{goal.name}}</p>
             {{goal.frequency}} time{{goal.frequency > 1 ? 's' : ''}} per {{goal.duration}}
+            <button class="pull-right btn btn-success" ng-click="addActivity(goal)" ng-hide="goal._has_activity_today">Add</button>
+            <a class="pull-right" ng-href ng-click="showAddActivityOnDate(goal)">+ Add on other date</a>
+            <button class="pull-right btn btn-warning" ng-click="removeActivity(goal)" ng-show="goal._has_activity_today">Remove</button>
+            Activities: <span class="label label-info" ng-repeat="activity in goal.activities">[{{activity.date_added}}]</span>
         </div>
     </div>
 </div>
