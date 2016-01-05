@@ -46,6 +46,8 @@
             <a class="pull-right" ng-href ng-click="showAddActivityOnDate(goal)">+ Add on other date</a>
             <button class="pull-right btn btn-warning" ng-click="removeActivity(goal)" ng-show="goal._has_activity_today">Remove</button>
             Activities: <span class="label label-info" ng-repeat="activity in goal.activities">[{{activity.date_added}}]</span>
+            <br/>
+            Days left: {{ goal._days_left }}, Start: {{ goal._duration_start }}, End: {{ goal._duration_end }}
         </div>
     </div>
 </div>
