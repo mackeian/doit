@@ -184,7 +184,6 @@ dashApp.service('GoalService', function($http, lodash) {
                     } else {
                         completed_at_label += 'th';
                     }
-                    //activity_added_dates_in_duration
                 }
             } else {
                 if (duration_passed_percent >= step_90_percent) {
@@ -247,7 +246,7 @@ dashApp.service('GoalService', function($http, lodash) {
             {
                 'id': _generateUUID(),
                 name: params.name,
-                frequency: params.frequency,
+                frequency: parseInt(params.frequency, 10),
                 duration: params.duration
             }
         );
