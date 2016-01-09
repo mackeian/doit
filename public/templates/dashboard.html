@@ -38,16 +38,46 @@
 </div>
 
 <div ng-show="goals && !state">
-    <div class="row" ng-repeat="goal in goals">
+    <div class="row" ng-repeat="goal in goals"
+        ng-class="{
+            'background-green': goal.statistics.current_status === 100,
+            'background-red': goal.statistics.current_status === 3,
+            'background-yellow': goal.statistics.current_status === 2,
+            'background-blue': goal.statistics.current_status === 1,
+        }"
+    >
         <div class="col-xs-12">
             <p class="lead">{{goal.name}}</p>
-            {{goal.frequency}} time{{goal.frequency > 1 ? 's' : ''}} per {{goal.duration}}
-            <button class="pull-right btn btn-success" ng-click="addActivity(goal)" ng-hide="goal._has_activity_today">Add</button>
-            <a class="pull-right" ng-href ng-click="showAddActivityOnDate(goal)">+ Add on other date</a>
-            <button class="pull-right btn btn-warning" ng-click="removeActivity(goal)" ng-show="goal._has_activity_today">Remove</button>
-            Activities: <span class="label label-info" ng-repeat="activity in goal.activities">[{{activity.date_added}}]</span>
             <br/>
-            Days left: {{ goal._days_left }}, Start: {{ goal._duration_start }}, End: {{ goal._duration_end }}
+            <div class="row">
+                <div class="col-xs-12">
+                    <div ng-repeat="step in goal.statistics.frequency_steps"
+                         class="step-box text-center"
+                         ng-class="{
+                            'background-green': step.completed,
+                            'background-red': !step.completed && step.incompleted_status === 3,
+                            'background-yellow': !step.completed && step.incompleted_status === 2,
+                            'background-blue': !step.completed && step.incompleted_status === 1,
+                            'background-gray': !step.completed && step.incompleted_status === 0
+                         }"
+                    >
+                        <i ng-show="step.completed" class="fa fa-2x fa-check"></i>
+                        <strong ng-show="step.completed" class="text-center"><br/>
+                            {{step.completed_at_label}}
+                        </strong>
+                    </div>
+                </div>
+            </div>
+
+
+            {{goal.frequency}} time{{goal.frequency > 1 ? 's' : ''}} per {{goal.duration}}
+            <button class="pull-right btn btn-success" ng-click="addActivity(goal)" ng-hide="goal.statistics.has_activity_today">Add</button>
+            <a class="pull-right" ng-href ng-click="showAddActivityOnDate(goal)">+ Add on other date</a>
+            <button class="pull-right btn btn-warning" ng-click="removeActivity(goal)" ng-show="goal.statistics.has_activity_today">Remove</button>
+            Activities this duration: {{ goal.statistics.number_activities_in_duration }}
+            <br/>
+            Days passed: {{ goal.statistics.days_passed_in_duration}} ({{ goal.statistics.days_passed_in_duration/goal.statistics.days_total_in_duration}}) Start: {{ goal.statistics.duration_start_formatted }}, End: {{ goal.statistics.duration_end_formatted }}
+            <hr>
         </div>
     </div>
 </div>

@@ -296,3 +296,11 @@ a.color-white, a.color-white:visited, a.color-white:active {
     height: 24px;
     width: 24px;
 }
+
+.step-box {
+    border: 1px solid grey;
+    height: 50px;
+    width: 50px;
+    float: left;
+    position: relative;
+}
